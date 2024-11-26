@@ -45,6 +45,31 @@ public class Clazz {
     this.timings.add(slot);
   }
 
+  public void setId(String id) {
+    this.id = id;
+  }
 
+  public String getGymId() {
+    return gymId;
+  }
 
+  public void setGymId(String gymId) {
+    this.gymId = gymId;
+  }
+
+  public void setType(ClassType type) {
+    this.type = type;
+  }
+
+  public List<Booking> getBookings() {
+    return bookings;
+  }
+
+  public void setBookings(List<Booking> bookings) {
+    this.bookings = bookings;
+  }
+
+  public void setTimings(List<Slot> timings) {
+    this.timings = timings;
+  }
 }
