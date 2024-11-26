@@ -1,6 +1,7 @@
 package repository;
 
 import exception.DuplicateEntityException;
+import exception.UnknownEntityException;
 import model.Clazz;
 import model.Gym;
 
@@ -8,10 +9,10 @@ import java.util.HashMap;
 
 public class GymRepository {
   private HashMap<String, Gym> gyms = new HashMap<String, Gym>();
-  ClazzRepository clazzRepository;
+//  ClazzRepository clazzRepository;
 
-  public GymRepository(ClazzRepository clazzRepository) {
-    this.clazzRepository = clazzRepository;
+  public GymRepository() {
+
   }
 
   public void addGym(Gym gym) {
@@ -19,20 +20,17 @@ public class GymRepository {
       throw new DuplicateEntityException(gym.getId() + " already exists");
     }
     gyms.put(gym.getId(), gym);
-    for(Clazz c: gym.getClasses()){
-      clazzRepository.addClass(c);
-    }
+    System.out.println("Added gym: " + gym.toString());
   }
 
   public Gym getGym(String id) {
     return gyms.get(id);
   }
 
-  public boolean addClass(Clazz clazz, String gymId) {
-    if(clazzRepository.addClass(clazz)) {
-      return gyms.get(gymId).addClass(clazz);
-    }
-    return false;
+  public boolean addClass(Clazz clazz) {
+
+    gyms.get(clazz.getGymId()).addClass(clazz);
+    return true;
   }
 
   public HashMap<String, Gym> getGyms() {

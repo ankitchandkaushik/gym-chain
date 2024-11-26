@@ -1,11 +1,20 @@
 package model;
 
+import java.util.UUID;
+
 public class Booking {
   String id;
-  Slot slot;
+//  Slot slot;
   String userId;
-  public Booking(Slot slot) {
-    this.slot = slot;
+  String slotId;
+  String classId;
+  String gymId;
+  public Booking(String userId, String slotId, String classId, String gymId) {
+    this.id = UUID.randomUUID().toString();
+    this.userId = userId;
+    this.slotId = slotId;
+    this.classId = classId;
+    this.gymId = gymId;
   }
   public String getId() {
     return this.id;
@@ -15,13 +24,13 @@ public class Booking {
     this.id = id;
   }
 
-  public Slot getSlot() {
-    return slot;
-  }
+//  public Slot getSlot() {
+//    return slot;
+//  }
 
-  public void setSlotId(Slot slot) {
-    this.slot = slot;
-  }
+//  public void setSlotId(Slot slot) {
+//    this.slot = slot;
+//  }
 
   public String getUserId() {
     return userId;
@@ -29,5 +38,29 @@ public class Booking {
 
   public void setUserId(String userId) {
     this.userId = userId;
+  }
+
+  public String getSlotId() {
+    return slotId;
+  }
+
+  public void setSlotId(String slotId) {
+    this.slotId = slotId;
+  }
+
+  public String getClassId() {
+    return classId;
+  }
+
+  public void setClassId(String classId) {
+    this.classId = classId;
+  }
+
+  public String getGymId() {
+    return gymId;
+  }
+
+  public void setGymId(String gymId) {
+    this.gymId = gymId;
   }
 }
